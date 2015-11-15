@@ -11,7 +11,7 @@ Here we put what the library does as concisely as possible, developers should be
 
 # Motivation
 
-A short description of our motivation behind the creation and maintenance of the project. This should explain why the project exists.
+The traditional FAQs in website are static and the website admin is god. We descided to change this, by creating an FAQ system that will allow the user/reader to give feedback and show satisfaction or dissatisfaction. Thus making FAQs fun and interactive.
 
 # Installation
 
