@@ -25,7 +25,7 @@ Here we describe and show how to run the tests with code examples.
 
 # Contributors
 
-Ogbonna Amanze
+Amanze Ogbonna
 Edwin Tsatsu
 Akinbobola Olayinka
 Mustapha Babatunde
