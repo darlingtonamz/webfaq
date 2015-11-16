@@ -2,7 +2,8 @@ class CreateFaqs < ActiveRecord::Migration
   def change
     create_table :faqs do |t|
       t.string :title
-      t.integer :user_id
+      # create user_id field
+      t.references :user, index: true, foreign_key: true 
 
       t.timestamps null: false
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151114185735) do
+ActiveRecord::Schema.define(version: 20151116114907) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -21,12 +21,17 @@ ActiveRecord::Schema.define(version: 20151114185735) do
     t.datetime "updated_at",  null: false
   end
 
+  add_index "comments", ["question_id"], name: "index_comments_on_question_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
   create_table "faqs", force: :cascade do |t|
     t.string   "title"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "faqs", ["user_id"], name: "index_faqs_on_user_id"
 
   create_table "questions", force: :cascade do |t|
     t.string   "content"
@@ -36,6 +41,8 @@ ActiveRecord::Schema.define(version: 20151114185735) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "questions", ["faq_id"], name: "index_questions_on_faq_id"
+
   create_table "ratings", force: :cascade do |t|
     t.boolean  "value"
     t.integer  "question_id"
@@ -43,6 +50,9 @@ ActiveRecord::Schema.define(version: 20151114185735) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "ratings", ["question_id"], name: "index_ratings_on_question_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

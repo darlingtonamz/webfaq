@@ -21,7 +21,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
+    @user = User.new(user_param)
+    if @user.save
+      flash[:notice] = 'Signup successful'
+      render :show
+    else
+      render 'edit'
+    end
   end
 
   def destroy

@@ -3,7 +3,8 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :content
       t.string :answer
-      t.integer :faq_id
+      # create faq_id field
+      t.references :faq, index: true, foreign_key: true
 
       t.timestamps null: false
     end
