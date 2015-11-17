@@ -10,7 +10,7 @@ default: &default
   password: faq_password
   pool: 5
   timeout: 5000
-  host: localhost
+  host: localhost	
 
 development:
   <<: *default

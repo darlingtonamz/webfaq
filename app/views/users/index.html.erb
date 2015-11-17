@@ -1,6 +1,5 @@
 <h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<%= form_for @user do |f| %>
+<%= form_for (url:{action:update, id:@user.id}) do |f|%>
 	<%= f.label "Name"%> <%= f.text_field :name %> <br>
 	<%= f.label "Email"%> <%= f.text_field :email %><br>
 	<%= f.submit "Submit" %>

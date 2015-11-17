@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @user = User.new
+    
   end
 
   def create
     @user = User.new(user_param)
     if @user.save
-      flash[:notice] = 'Signup successful'
       render :show
     else
       render 'index'
@@ -15,11 +14,12 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
   end
 
   def show
     @user = User.find(params[:id])
-    @faqs = @user.faqs
+    @faqs = (@user.faqs|=[])
   end
 
   def edit
@@ -27,9 +27,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.new(user_param)
-    if @user.save
-      flash[:notice] = 'Signup successful'
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_param)
       render :show
     else
       render 'edit'

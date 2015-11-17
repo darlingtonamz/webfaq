@@ -11,11 +11,13 @@
 		<th>Answer</th>
 		<th>...</th>
 	</tr>
-	<% @questions.each do |f| %>
-		<tr>
-			<td><%= f.content %></td>
-			<td><%= f.answer %></td>
-			<td><%= link_to 'Edit', faq_path(f) %></td>
-		</tr>
+	<% if !@questions.nil? %>
+		<% @questions.each do |f| %>
+			<tr>
+				<td><%= f.content %></td>
+				<td><%= f.answer %></td>
+				<td><%= link_to 'Edit', faq_path(f) %></td>
+			</tr>
+		<% end %>
 	<% end %>
 </table>
