@@ -6,5 +6,7 @@ class FaqsController < ApplicationController
   end
 
   def show
+  	@faq = Faq.find(params[:id])
+  	@questions = @faq.questions
   end
 end
