@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116114907) do
+ActiveRecord::Schema.define(version: 20151114185735) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20151116114907) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "comments", ["question_id"], name: "index_comments_on_question_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["question_id"], name: "index_comments_on_question_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "faqs", force: :cascade do |t|
     t.string   "title"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20151116114907) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "faqs", ["user_id"], name: "index_faqs_on_user_id"
+  add_index "faqs", ["user_id"], name: "index_faqs_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "content"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(version: 20151116114907) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "questions", ["faq_id"], name: "index_questions_on_faq_id"
+  add_index "questions", ["faq_id"], name: "index_questions_on_faq_id", using: :btree
 
   create_table "ratings", force: :cascade do |t|
     t.boolean  "value"
@@ -51,8 +54,8 @@ ActiveRecord::Schema.define(version: 20151116114907) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "ratings", ["question_id"], name: "index_ratings_on_question_id"
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
+  add_index "ratings", ["question_id"], name: "index_ratings_on_question_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -61,4 +64,10 @@ ActiveRecord::Schema.define(version: 20151116114907) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "questions"
+  add_foreign_key "comments", "users"
+  add_foreign_key "faqs", "users"
+  add_foreign_key "questions", "faqs"
+  add_foreign_key "ratings", "questions"
+  add_foreign_key "ratings", "users"
 end
