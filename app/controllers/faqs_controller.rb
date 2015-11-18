@@ -9,6 +9,7 @@ class FaqsController < ApplicationController
 
   def create
   	@faq = Faq.new(faq_param)
+  	@faq.user_id = params[:user_id]
     if @faq.save
       render :show
     else
@@ -21,9 +22,22 @@ class FaqsController < ApplicationController
   	@questions = @faq.questions
   end
 
+  def edit
+    @faq = faq.find(params[:id])
+  end
+
+  def update
+    @faq = faq.find(params[:id])
+    if @faq.update_attributes(faq_param)
+      render :show
+    else
+      render 'edit'
+    end
+  end
+
   private
   def faq_param
-    params.require(:faq).permit(:title, :user_id)
+    params.require(:faqs).permit(:title)
   end
 
 end

@@ -1,8 +1,7 @@
 <h1>Faqs#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 <%= @user_id %>
-<%= form_for @faq do |f|%>
+<%= form_for(:faqs, :url => {:action => 'create'}) do |f|%>
 	<%= f.label "Title"%> <%= f.text_field :title %> <br>
 	<%= f.submit "Submit" %>
-	<%= f.hidden_field_tag (:user_id, @user_id) %>
 <% end %>

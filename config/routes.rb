@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :users
-  resources :faqs
+  resources :users do
+  	resources :faqs do
+  		resources :questions
+  	end
+  end
   resources :comments
-  resources :questions
   resources :ratings
 
   root to: "application#index"
