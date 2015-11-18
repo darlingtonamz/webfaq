@@ -17,7 +17,7 @@ Welcome <%= @user.name.capitalize %>
 			<tr>
 				<td><%= f.title %></td>
 				<td><%= f.created_at %></td>
-				<td><%= link_to 'Edit', user_faq_edit_path(f) %></td>
+				<td><%= link_to 'Edit', user_path(f) %></td>
 			</tr>
 		<% end %>
 	<% end %>
