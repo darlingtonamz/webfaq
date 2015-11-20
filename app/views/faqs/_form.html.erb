@@ -1,0 +1,6 @@
+<%= form_for :faqs, :url => {:action => 'create'}, remote: true, html:{id: 'new_task'} do |f|%>
+	<%= f.text_field :title %> 
+	<%= f.submit "Submit" , class: 'btn btn-primary'%>
+<% end %>
+
+<!=, remote: true=>

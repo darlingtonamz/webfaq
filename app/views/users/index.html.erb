@@ -1,6 +1,4 @@
 <h1>Users#index</h1>
-<%= form_for (url:{action:update, id:@user.id}) do |f|%>
-	<%= f.label "Name"%> <%= f.text_field :name %> <br>
-	<%= f.label "Email"%> <%= f.text_field :email %><br>
-	<%= f.submit "Submit" %>
-<% end %>
+
+Welcome <%= @user.name %>
+<%= link_to "Your FAQs", user_faqs_path %>

@@ -1,24 +1,8 @@
 <h1>Faqs#show</h1>
 <p>Find me in app/views/faqs/show.html.erb</p>
 
+
 <%= @faq.title.capitalize %>
 <%= @faq.user_id %>
 <br>
 
-<h4>Questions in <%= @faq.title.capitalize %></h4>
-<table>
-	<tr>
-		<th>Question</th>
-		<th>Answer</th>
-		<th>...</th>
-	</tr>
-	<% if !@questions.nil? %>
-		<% @questions.each do |f| %>
-			<tr>
-				<td><%= f.content %></td>
-				<td><%= f.answer %></td>
-				<td><%= link_to 'Edit', faq_path(f) %></td>
-			</tr>
-		<% end %>
-	<% end %>
-</table>

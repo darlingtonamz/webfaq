@@ -3,22 +3,5 @@
 Welcome <%= @user.name.capitalize %>
 
 <%= link_to 'Edit', edit_user_path(@user) %><br>
-<br>
-<h3>FAQs for <%= @user.name.capitalize %></h3>
-<%= link_to 'Add FAQ', user_faq_path(:new, user_id: @user.id) %><br>
-<table>
-	<tr>
-		<th>Title</th>
-		<th>Created</th>
-		<th>...</th>
-	</tr>
-	<% if !@faqs.nil? %>
-		<% @faqs.each do |f| %>
-			<tr>
-				<td><%= f.title %></td>
-				<td><%= f.created_at %></td>
-				<td><%= link_to 'Edit', user_path(f) %></td>
-			</tr>
-		<% end %>
-	<% end %>
-</table>
+
+<%= link_to "Your FAQs", user_faqs_path(@user.id) %>
