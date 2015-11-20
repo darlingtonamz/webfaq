@@ -1,5 +1,5 @@
 <tr id='edit_faq_<%= @faq.id%>'>
-	<td><%= @faq.title %></td>
+	<td><%= link_to @faq.title, user_faq_questions_path(@faq.user_id, @faq) %></td>
 	<td><%= @faq.created_at %></td>
 	<td><%= link_to 'Show', user_faq_path(@faq.user_id, @faq) %></td>
 	<td><%= link_to 'Delete', user_faq_path(@faq.user_id, @faq), method: :delete %></td>

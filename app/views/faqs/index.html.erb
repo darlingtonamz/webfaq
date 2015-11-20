@@ -17,7 +17,7 @@
 			<% if !@faqs.nil? %>
 				<% @faqs.each do |f| %>
 					<tr id='edit_faq_<%= f.id%>'>
-						<td><%= f.title %></td>
+						<td><%= link_to f.title, user_faq_questions_path(@user,f) %></td>
 						<td><%= f.created_at %></td>
 						<td><%= link_to 'Show', user_faq_path(@user, f) %></td>
 						<td><%= link_to 'Delete', user_faq_path(@user, f), method: :delete, remote: true %></td>
