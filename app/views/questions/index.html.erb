@@ -1,2 +1,55 @@
 <h1>Questions#index</h1>
 <p>Find me in app/views/questions/index.html.erb</p>
+	<%= link_to '<<Back', user_faqs_path, class: 'btn btn-link' %>
+	<div class="container">
+		<!-- <button class="btn btn-primary" id="popup" onclick="div_show()">Create QA</button> -->
+		<%#= link_to 'Add New QA', new_user_faq_question_path(), :onclick => 'div_show()', class: 'btn btn-primary' %>
+		<%= button_tag "Create QA", :id => "popup", class: 'btn btn-primary', :onclick=>"div_show()" %>
+	</div>
+
+	<div class="container">
+		<table class="table">
+			<tr>
+				<th>Question</th>
+				<th>Answer</th>
+				<th>...</th>
+			</tr>
+				<% @questions.each do |q|%>
+			<tr>
+				<td><%= q.content %></td>
+				<td><%= q.answer %></td>
+				<td><%= link_to 'View', user_faq_question_path(1, @faq, q), class: 'btn btn-link' %></td>
+				<% end %>
+			</tr>
+		</table>
+	</div>
+
+
+<div id="body" style="overflow:hidden;">
+	<div id="abc">
+<!-- Popup Div Starts Here -->
+<div id="popupContact">
+<%= form_for :question, url: {action: 'create'}, :html => {:id => "form"} do |f| %>
+  <%= image_tag "close.png", :onclick=>"div_hide()", :id => "close" %>
+  <h2>Questions & Answers</h2>
+  <hr>
+  <%= f.text_field :content, placeholder: 'Question' %><br />
+  <%= f.text_area :answer , placeholder: 'Answer'%><br />
+  <%= f.submit 'Create QA', class: 'btn btn-primary' %>
+<% end %>
+</div>
+</div>
+</div>
+
+  <!-- <img id="close" src="close.png" onclick ="div_hide()"> -->
+<!-- Contact Us Form -->
+<!-- <form action="#" id="form" method="post" name="form">
+
+<img id="close" src="close.png" onclick ="div_hide()">
+<h2>Questions & Answers</h2>
+<hr>
+<input id="ques" name="name" placeholder="Question" type="text">
+<textarea id="ans" name="message" placeholder="Answer"></textarea>
+<a href="javascript:%20check_empty()" id="submit">Add QA</a>
+</form> -->
+<!-- Popup Div Ends Here -->
