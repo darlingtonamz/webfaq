@@ -1,2 +1,18 @@
 <h1>Questions#show</h1>
 <p>Find me in app/views/questions/show.html.erb</p>
+	<%= link_to '<<Back', user_faq_questions_path, class: 'btn btn-link' %>
+	<div class="container">
+		<table class="table">
+			<tr>
+				<th>Question</th>
+				<th>Answer</th>
+				<th>...</th>
+			</tr>
+			<tr>
+				<td><p><%= @question.content %></p></td>
+				<td><p><%= @question.answer %></p></td>
+				<td><p><%= link_to 'Edit', edit_user_faq_question_path, class: 'btn btn-link' %><%= link_to 'Delete',user_faq_question_path(), method: :delete, class: 'btn btn-link' %></p></td>
+			</tr>
+		</table>
+	</div>
+	

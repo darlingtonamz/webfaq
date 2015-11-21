@@ -1,0 +1,10 @@
+<h1>Edit#Content</h1>
+<h3>find me in views/questions/edit.html.erb</h3>
+
+	<div class="container">
+		<%= form_for @question, url: {action: "update"} do |f| %>
+		  <%= f.label :Question %>:<%= f.text_field :content %><br />
+		  <%= f.label :Answer %>:<%= f.text_field :answer %><br />
+		  <%= f.submit 'Update QA', class: 'btn btn-primary' %>
+		<% end %>
+	</div>
