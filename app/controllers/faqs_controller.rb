@@ -27,15 +27,15 @@ class FaqsController < ApplicationController
   end
 
   def edit
-    @faq = faq.find(params[:id])
+    @faq = Faq.find(params[:id])
   end
 
   def update
-    @faq = faq.find(params[:id])
+    @faq = Faq.find(params[:id])
     if @faq.update_attributes(faq_param)
-      render :show
+      redirect_to user_faqs_path(@faq.user_id)
     else
-      render 'edit'
+      redirect_to edit_user_faq_path(@faq.user_id, @faq)
     end
   end
 
@@ -49,7 +49,7 @@ class FaqsController < ApplicationController
 
   private
   def faq_param
-    params.require(:faqs).permit(:title)
+    params.require(:faq).permit(:title)
 
   end
 

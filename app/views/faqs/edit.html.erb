@@ -1,4 +1,8 @@
-<%= form_for @faq do |f| %>
-	<%= f.label "Title"%> <%= f.text_field :title %> <br>
-	<%= f.submit "Submit" %>
-<% end %>
+<div class="container">
+	<h3>Change you FAQ title</h3>
+
+	<%= form_for @faq, :url => {:action => 'update'} do |f| %>
+		<%= f.label "Title"%> <%= f.text_field :title %>
+		<%= f.submit "Update" %>
+	<% end %>
+</div>

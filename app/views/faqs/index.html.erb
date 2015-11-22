@@ -9,20 +9,24 @@
 		<%= link_to 'Add FAQ', user_faq_path(:new, user_id: @user.id), id: 'new_link', class: 'btn btn-primary', remote: true %><br>
 	</div>
 	<div class='row'>
-		<table id="append">
+		<table id="append" class="table table-bordered">
 			<tr>
 				<th>Title</th>
 				<th>Created</th>
 			</tr>
-			<% if !@faqs.nil? %>
+			<% if !@faqs.nil? && (@faqs.size > 0) %>
 				<% @faqs.each do |f| %>
 					<tr id='edit_faq_<%= f.id%>'>
 						<td><%= link_to f.title, user_faq_questions_path(@user,f) %></td>
 						<td><%= f.created_at %></td>
-						<td><%= link_to 'Show', user_faq_path(@user, f) %></td>
-						<td><%= link_to 'Delete', user_faq_path(@user, f), method: :delete, remote: true %></td>
+						<td><%= link_to image_tag('edit.png', alt:'Edit'), edit_user_faq_path(@user, f) %></td>
+						<td><%= link_to link_to image_tag('delete.png', alt:'Delete'), user_faq_path(@user, f), method: :delete, remote: true %></td>
 					</tr>
 				<% end %>
+			<% else %>
+				<tr id = 'no_faqs'>
+					<td>You have no FAQs</td>
+				</tr>
 			<% end %>
 		</table>
 	</div>
