@@ -1,0 +1,16 @@
+<div class="container">
+	<h3>Welcome to the home of interactive FAQs</h3>
+	<%= link_to 'Add user', user_path(:new) %>
+	<br>
+	<% if !@users.nil? %>
+		<table class="table table-bordered">
+			<% @users.each do |f| %>
+				<tr>
+					<td><%= f.name %></td>
+					<td><%= f.email %></td>
+					<td><%= link_to 'Enter', user_path(f) %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>

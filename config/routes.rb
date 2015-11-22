@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :comments
   resources :ratings
 
-  root to: "application#index"
+  root to: "users#login"
 end
