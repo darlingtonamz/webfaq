@@ -3,11 +3,13 @@
 
 # Synopsis
 
+WebFAQ is an interactive FAQ plugin for the web. 
+
 Here we put short introduction and/ or overview that explains what the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
 
 # Code Example
 
-Here we put what the library does as concisely as possible, developers should be able to figure out how your project solves their problem by looking at the code example. Make sure the API you are showing off is obvious, and that your code is short and concise.
+This project is built on Rails(Ruby on Rails), and relational data is stored using PostGreSQL, styling is done using SASS, and the interactivity of the project is based on JQuery.
 
 # Motivation
 
@@ -15,13 +17,11 @@ The traditional FAQs in website are static and the website admin is god. We desc
 
 # Installation
 
-Provide code examples and explanations of how to get the project.
-
-
+Visit our site and create an FAQ with many questions and answers, when you are done, you can use our systwm to generate an embed code for your website.
 
 # Tests
 
-Here we describe and show how to run the tests with code examples.
+Embed the code and write a comment or rate the question.
 
 # Contributors
 
