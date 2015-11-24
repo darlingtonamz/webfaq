@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
 
   before_action :find_faq
+  before_action :find_user
 
   def index
   	@questions = Question.where(faq_id:@faq.id)
@@ -51,6 +52,12 @@ class QuestionsController < ApplicationController
    def find_faq
       if params[:faq_id]
         @faq = Faq.find(params[:faq_id])
+      end
+    end
+
+    def find_user
+      if params[:user_id]
+        @user = current_user.id
       end
     end
 end

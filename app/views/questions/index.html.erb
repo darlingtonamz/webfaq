@@ -14,16 +14,16 @@
 				<div class="qtop distant">					
 					<div class="qleft">
 						<div class="qhead distant">
-							<%= link_to  q.content, user_faq_question_path(1, @faq, q) %>
+							<%= link_to  q.content, user_faq_question_path(@user, @faq, q) %>
 						</div>
 						<div class="qanswer distant">
 							<%= q.answer %>
 						</div>
 					</div>
 					<div class="qright">
-						<div class="voteup"><%= image_tag('up2x.png', class: 'voteimg') %></div>
+						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg btn btn-default btn-sm') %></div>
 						<div class="vrating">0</div>
-						<div class="votedown"><%= image_tag('down2x.png', class: 'voteimg flip') %></div>
+						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg btn btn-default btn-sm') %></div>
 					</div>
 				</div>
 				<div class="qbottom row">
