@@ -44,9 +44,9 @@ class QuestionsController < ApplicationController
   end
 
   private
-  def question_param
-  	params.require(:question).permit(:content, :answer)
-  end
+    def question_param
+    	params.require(:question).permit(:content, :answer)
+    end
 
    def find_faq
       if params[:faq_id]

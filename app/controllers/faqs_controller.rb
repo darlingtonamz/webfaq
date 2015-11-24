@@ -12,14 +12,14 @@ class FaqsController < ApplicationController
   	@faq = Faq.new(faq_param)
   	@faq.user_id = params[:user_id]
     
-	respond_to do |format|
-		if @faq.save
-			format.html { redirect_to user_faqs_path(@faq.user_id)}
-			format.js
-	    else
-	      render 'show'
-	    end
-	end
+  	respond_to do |format|
+  		if @faq.save
+  			format.html { redirect_to user_faqs_path(@faq.user_id)}
+  			format.js
+  	    else
+  	      render 'show'
+  	    end
+  	end
   end
 
   def show
@@ -42,15 +42,14 @@ class FaqsController < ApplicationController
   def destroy
   	@faq = Faq.destroy(params[:id])
   	respond_to do |format|
-		format.html { redirect_to user_faqs_path(@faq.user_id)}
-		format.js
-	end
+  		format.html { redirect_to user_faqs_path(@faq.user_id)}
+  		format.js
+	  end
   end
 
   private
-  def faq_param
-    params.require(:faq).permit(:title)
-
-  end
+    def faq_param
+      params.require(:faq).permit(:title)
+    end
 
 end
