@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  
   def login
     @users = User.all
   end
@@ -22,8 +24,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @faqs = (@user.faqs|=[])
+    @user = current_user.id
+    #@faqs = (@user.faqs|=[])
   end
 
   def edit

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   devise_scope :user do
-  	get "/" => "devise/sessions#new"
+  	# get "/" => "devise/sessions#new"
   resources :users do
   	resources :faqs do
   		resources :questions
@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :comments
   resources :ratings
   
+  root to: "users#show"
 end
