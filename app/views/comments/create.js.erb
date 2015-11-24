@@ -1,0 +1,4 @@
+$('#comment_form_<%= @comment.question_id %>').remove();
+$('#comment_but_<%= @comment.question_id %>').show();
+$('#comment_count_<%= @comment.question_id %>').empty()
+		.append('<%= @comment.question.comments.size %> comments')
