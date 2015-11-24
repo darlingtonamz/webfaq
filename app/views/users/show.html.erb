@@ -2,6 +2,6 @@
 <p>Find me in app/views/users/show.html.erb</p>
 Welcome <%= @user.name.capitalize %>
 
-<%= link_to 'Edit', edit_user_path(@user) %><br>
+<%= link_to 'Edit', edit_user_registration_path(@user) %><br>
 
 <%= link_to "Your FAQs", user_faqs_path(@user.id) %>
