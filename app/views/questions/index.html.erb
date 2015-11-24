@@ -8,20 +8,32 @@
 	</div>
 
 	<div class="container">
-		<table class="table">
-			<tr>
-				<th>Question</th>
-				<th>Answer</th>
-				<th>...</th>
-			</tr>
-				<% @questions.each do |q|%>
-			<tr>
-				<td><%= q.content %></td>
-				<td><%= q.answer %></td>
-				<td><%= link_to 'View', user_faq_question_path(1, @faq, q), class: 'btn btn-link' %></td>
-				<% end %>
-			</tr>
-		</table>
+		<% @questions.each do |q|%>
+
+			<div class="row qmain distant card">
+				<div class="qtop distant">					
+					<div class="qleft">
+						<div class="qhead distant">
+							<%= link_to  q.content, user_faq_question_path(1, @faq, q) %>
+						</div>
+						<div class="qanswer distant">
+							<%= q.answer %>
+						</div>
+					</div>
+					<div class="qright">
+						<div class="voteup"><%= image_tag('up2x.png', class: 'voteimg') %></div>
+						<div class="vrating">0</div>
+						<div class="votedown"><%= image_tag('up2x.png', class: 'voteimg flip') %></div>
+					</div>
+				</div>
+				<div class="qbottom row">
+					<div class="col-xs-2">
+						<%= image_tag('comment1x.png') %>
+					</div>
+					<div class="col-xs-10">4 comments</div>
+				</div>
+			</div>
+		<% end %>
 	</div>
 
 
