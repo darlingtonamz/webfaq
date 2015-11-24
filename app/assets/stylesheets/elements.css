@@ -1,10 +1,10 @@
-/*
+
 
 
 @import "http://fonts.googleapis.com/css?family=Raleway";
 /*----------------------------------------------
 CSS settings for HTML div Exact Center
-------------------------------------------------
+------------------------------------------------*/
 #abc {
 width:100%;
 height:100%;
@@ -29,7 +29,7 @@ top:17%;
 margin-left:-202px;
 font-family:'Raleway',sans-serif
 }
-form {
+form#form {
 max-width:1000px;
 min-width:250px;
 padding:10px 50px;
@@ -41,7 +41,7 @@ background-color:#fff
 p {
 margin-top:30px
 }
-h2 {
+h2#h2 {
 background-color:#FEFFED;
 padding:20px 35px;
 margin:-10px -50px;
@@ -53,7 +53,7 @@ margin:10px -50px;
 border:0;
 border-top:1px solid #ccc
 }
-input[type=text] {
+input[type=text]#question_content {
 width:100.5%;
 padding:10px;
 margin-top:30px;
@@ -101,4 +101,3 @@ font-family:'Raleway',sans-serif;
 font-size:18px;
 cursor:pointer
 }
-*/
