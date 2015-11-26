@@ -7,6 +7,8 @@
 		<%= button_tag "Create QA", :id => "popup", class: 'btn btn-primary', :onclick=>"div_show()" %>
 	</div>
 
+
+
 	<div class="container">
 		<% @questions.each do |q|%>
 
@@ -21,9 +23,9 @@
 						</div>
 					</div>
 					<div class="qright">
-						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg btn btn-default btn-sm') %></div>
-						<div class="vrating">0</div>
-						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg btn btn-default btn-sm') %></div>
+						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg btn btn-default btn-sm'), like_user_faq_question_path(@user, @faq, q), method: :put %></div>
+						<div class="vrating"><%= q.get_upvotes.size %></div>
+						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg btn btn-default btn-sm'), dislike_user_faq_question_path(@user, @faq, q), method: :put %></div>
 					</div>
 				</div>
 				<div class="qbottom row">
