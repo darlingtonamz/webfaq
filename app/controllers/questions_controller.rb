@@ -44,9 +44,19 @@ class QuestionsController < ApplicationController
   	redirect_to user_faq_questions_path()
   end
 
+  def upvote
+    @question = Question.find(params[:id])
+    @question.upvote_by current_user
+    redirect_to :back
+  end
+  def downvote
+    @question = Question.find(params[:id])
+    @question.downvote_by current_user
+    redirect_to :back
+ end
   private
     def question_param
-    	params.require(:question).permit(:content, :answer)
+      params.require(:question).permit(:content, :answer)
     end
 
    def find_faq
@@ -60,4 +70,5 @@ class QuestionsController < ApplicationController
         @user = current_user.id
       end
     end
+
 end

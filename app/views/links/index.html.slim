@@ -1,0 +1,11 @@
+resources :links do
+  member do
+    put "like", to: "links#upvote"
+    put "dislike", to: "links#downvote"
+    @link = Link.find(1)
+@link.get_upvotes.size => 0
+
+= link_to "downvote", dislike_link_path(link), method: :put
+
+
+= link.score

@@ -1,15 +1,9 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
-	<%= link_to '<<Back', user_faqs_path, class: 'btn btn-link' %>
 	<div class="container">
-		<!-- <button class="btn btn-primary" id="popup" onclick="div_show()">Create QA</button> -->
-		<%#= link_to 'Add New QA', new_user_faq_question_path(), :onclick => 'div_show()', class: 'btn btn-primary' %>
 		<%= button_tag "Create QA", :id => "popup", class: 'btn btn-primary', :onclick=>"div_show()" %>
 	</div>
 
-	<div class="container">
+	<div>
 		<% @questions.each do |q|%>
-
 			<div class="row qmain distant card">
 				<div class="qtop distant">					
 					<div class="qleft">
@@ -21,11 +15,9 @@
 						</div>
 					</div>
 					<div class="qright">
-						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg') %></div>
-						<div class="vrating">
-							<%= q.ratings.size %>
-						</div>
-						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg') %></div>
+						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg'), like_user_faq_question_path(@user, @faq, q), method: :put %></div>
+						<div class="vrating"><%= q.get_upvotes.size %></div>
+						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg'), dislike_user_faq_question_path(@user, @faq, q), method: :put %></div>
 					</div>
 				</div>
 				<div class="qbottom row">
