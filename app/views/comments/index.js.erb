@@ -1,0 +1,7 @@
+if ($('#more_comment_<%= @question.id %>').is(':empty')){
+	$('#more_comment_<%= @question.id %>')
+	.append('<%= j render("more_comment") %>');
+} else {
+	$('#more_comment_<%= @question.id %>').empty();
+}
+

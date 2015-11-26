@@ -31,7 +31,7 @@ container{
 	*/
 }
 
-.qtop, .qhead{
+.qtop, .qhead {
 	border-bottom: 1px solid #e5e5e5;
 	overflow: auto;
 }
@@ -61,4 +61,17 @@ container{
 .qbottom{
 	padding-left: 20px;
 	padding-right: 20px;
+}
+
+.right{
+	text-align: right;
+}
+
+.xcomment{
+	margin-top: 10px;
+}
+
+.comment_name{
+	color: #337AB7;
+	font-size: 20px;
 }

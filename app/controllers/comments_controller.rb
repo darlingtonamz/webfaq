@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   def index
+  	@comments = Comment.where(question_id:params[:question_id])
+  	@question = Question.find(params[:question_id])
   end
 
   def new
