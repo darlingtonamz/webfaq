@@ -2,13 +2,8 @@
 		<%= button_tag "Create QA", :id => "popup", class: 'btn btn-primary', :onclick=>"div_show()" %>
 	</div>
 
-<<<<<<< HEAD
-
-
 	<div class="container">
-=======
 	<div>
->>>>>>> b393e01ba46d8abd8114d7c7b36a790becf9bcda
 		<% @questions.each do |q|%>
 			<div class="row qmain distant card">
 				<div class="qtop distant">					
@@ -21,17 +16,9 @@
 						</div>
 					</div>
 					<div class="qright">
-<<<<<<< HEAD
-						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg btn btn-default btn-sm'), like_user_faq_question_path(@user, @faq, q), method: :put %></div>
+						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg'), like_user_faq_question_path(@user, @faq, q), method: :put %></div>
 						<div class="vrating"><%= q.get_upvotes.size %></div>
-						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg btn btn-default btn-sm'), dislike_user_faq_question_path(@user, @faq, q), method: :put %></div>
-=======
-						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg') %></div>
-						<div class="vrating">
-							<%= q.ratings.size %>
-						</div>
-						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg') %></div>
->>>>>>> b393e01ba46d8abd8114d7c7b36a790becf9bcda
+						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg'), dislike_user_faq_question_path(@user, @faq, q), method: :put %></div>
 					</div>
 				</div>
 				<div class="qbottom row">
