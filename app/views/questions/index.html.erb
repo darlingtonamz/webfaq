@@ -1,15 +1,9 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
-	<%= link_to '<<Back', user_faqs_path, class: 'btn btn-link' %>
 	<div class="container">
-		<!-- <button class="btn btn-primary" id="popup" onclick="div_show()">Create QA</button> -->
-		<%#= link_to 'Add New QA', new_user_faq_question_path(), :onclick => 'div_show()', class: 'btn btn-primary' %>
 		<%= button_tag "Create QA", :id => "popup", class: 'btn btn-primary', :onclick=>"div_show()" %>
 	</div>
 
 	<div>
 		<% @questions.each do |q|%>
-
 			<div class="row qmain distant card">
 				<div class="qtop distant">					
 					<div class="qleft">
