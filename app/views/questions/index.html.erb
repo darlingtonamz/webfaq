@@ -1,17 +1,15 @@
-<h1>Questions#index</h1>
-<p>Find me in app/views/questions/index.html.erb</p>
-	<%= link_to '<<Back', user_faqs_path, class: 'btn btn-link' %>
 	<div class="container">
-		<!-- <button class="btn btn-primary" id="popup" onclick="div_show()">Create QA</button> -->
-		<%#= link_to 'Add New QA', new_user_faq_question_path(), :onclick => 'div_show()', class: 'btn btn-primary' %>
 		<%= button_tag "Create QA", :id => "popup", class: 'btn btn-primary', :onclick=>"div_show()" %>
 	</div>
 
+<<<<<<< HEAD
 
 
 	<div class="container">
+=======
+	<div>
+>>>>>>> b393e01ba46d8abd8114d7c7b36a790becf9bcda
 		<% @questions.each do |q|%>
-
 			<div class="row qmain distant card">
 				<div class="qtop distant">					
 					<div class="qleft">
@@ -23,17 +21,28 @@
 						</div>
 					</div>
 					<div class="qright">
+<<<<<<< HEAD
 						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg btn btn-default btn-sm'), like_user_faq_question_path(@user, @faq, q), method: :put %></div>
 						<div class="vrating"><%= q.get_upvotes.size %></div>
 						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg btn btn-default btn-sm'), dislike_user_faq_question_path(@user, @faq, q), method: :put %></div>
+=======
+						<div class="voteup"><%= link_to image_tag('up2x.png', class: 'voteimg') %></div>
+						<div class="vrating">
+							<%= q.ratings.size %>
+						</div>
+						<div class="votedown"><%=link_to image_tag('down2x.png', class: 'voteimg') %></div>
+>>>>>>> b393e01ba46d8abd8114d7c7b36a790becf9bcda
 					</div>
 				</div>
 				<div class="qbottom row">
-					<div class="col-xs-2">
-						<%= image_tag('comment1x.png') %>
+					<div class="col-sm-10 col-xs-8">
+						<%= link_to image_tag('comment1x.png'), comment_path(:new, user_id: q.faq.user_id, question_id: q.id), id: "comment_but_#{q.id}", remote: true %>
 					</div>
-					<div class="col-xs-10">4 comments</div>
+					<div id="comment_count_<%= q.id %>" class="col-sm-2 col-xs-4 right">
+						<%= link_to "#{q.comments.size} comments", comments_path(user_id: q.faq.user_id, question_id: q.id), remote: true %>
+					</div>
 				</div>
+				<div id="more_comment_<%= q.id %>" class="container"></div>
 			</div>
 		<% end %>
 	</div>

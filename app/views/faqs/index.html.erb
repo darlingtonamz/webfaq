@@ -1,13 +1,4 @@
-
-
-<div class='container'>
-	<div class="row">		
-		<h1>Faqs#index</h1>
-		<p>Find me in app/views/faqs/index.html.erb</p>
-		<br>
-		<h3>FAQs for <%= @user.name.capitalize %></h3>
-		<%= link_to 'Add FAQ', user_faq_path(:new, user_id: @user.id), id: 'new_link', class: 'btn btn-primary', remote: true %><br>
-	</div>
+<div>
 	<div class='row'>
 		<table id="append" class="table table-bordered">
 			<tr>
@@ -20,7 +11,8 @@
 						<td><%= link_to f.title, user_faq_questions_path(@user,f) %></td>
 						<td><%= f.created_at %></td>
 						<td><%= link_to image_tag('edit.png', alt:'Edit'), edit_user_faq_path(@user, f) %></td>
-						<td><%= link_to link_to image_tag('delete.png', alt:'Delete'), user_faq_path(@user, f), method: :delete, remote: true %></td>
+						<td><%= link_to link_to image_tag('delete.png', alt:'Delete'), user_faq_path(@user, f), method: :delete, remote: true %>
+						</td>
 					</tr>
 				<% end %>
 			<% else %>
