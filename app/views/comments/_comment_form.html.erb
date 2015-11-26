@@ -1,0 +1,6 @@
+<%= form_for @comment, :url => {:action => 'create'}, remote: true, html:{id: "comment_form_#{@question.id}"} do |f|%>
+	<%= f.text_area :content, size: '80', placeholder: "What do you think? "%> 
+	<%= f.submit ">" , class: 'btn btn-primary'%>
+	<%= hidden_field_tag 'user_id', @question.faq.user_id %>
+	<%= hidden_field_tag 'question_id', @question.id %>
+<% end %>

@@ -1,0 +1,11 @@
+<% @comments.each do |comment| %>
+	<div class="row xcomment">
+		<div class="col-sm-1 col-xs-2">
+			<%= image_tag('avatar.png', size: '40x40') %>
+		</div>
+		<div class="col-sm-11 col-xs-10">
+			<div class="comment_name"><%= comment.user.name %></div>
+			<div><%= comment.content %></div>			
+		</div>
+	</div>
+<% end %>
