@@ -1,3 +1,7 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+
 <%= link_to image_tag('add2x.png'), user_faq_path(:new, user_id: @user.id), id: 'new_link', class: 'btn btn-primary floating_button', remote: true %>
 	<div id="form_div"></div>
 	<div class='row'>
