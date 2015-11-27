@@ -5,6 +5,7 @@ class QuestionsController < ApplicationController
 
   def index
   	@questions = Question.where(faq_id:@faq.id)
+    @question = Question.new
   end
 
   def new
@@ -15,10 +16,13 @@ class QuestionsController < ApplicationController
   def create
   	@question = Question.new(question_param)
   	@question.faq_id = params[:faq_id]
-    if @question.save
-      redirect_to user_faq_questions_path()
-    else
-      render 'show'
+
+    respond_to do |format|
+      if @question.save
+        format.html {redirect_to user_faq_questions_path()}
+      else
+        format.html {redirect_to :back, notice: 'Error creating content.'}
+      end
     end
   end
 

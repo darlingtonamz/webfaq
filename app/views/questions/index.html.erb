@@ -1,3 +1,7 @@
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+	<%= link_to '<<Back', user_faqs_path, class: 'btn btn-link' %>
 	<div class= 'btn btn-primary floating_button' onclick="div_show()", id = "popup", alt= "Create QA">
 		<%= image_tag('add2x.png')%>
 	</div>
@@ -39,6 +43,16 @@
 <!-- Popup Div Starts Here -->
 <div id="popupContact">
 <%= form_for :question, url: {action: 'create'}, :html => {:id => "form"} do |f| %>
+<% if @question.nil? && @question.error.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@question.errors.count, "error") %> prohibited this content from being saved:</h2>
+    <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
   <%= image_tag "close.png", :onclick=>"div_hide()", :id => "close" %>
   <h2 id="h2">Questions & Answers</h2>
   <hr>

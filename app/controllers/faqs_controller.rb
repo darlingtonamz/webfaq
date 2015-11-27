@@ -17,7 +17,7 @@ class FaqsController < ApplicationController
   			format.html { redirect_to user_faqs_path(@faq.user_id)}
   			format.js
   	    else
-  	      render 'show'
+  	     # TODO format.js {redirect_to user_faqs_path(@user), notice: 'Error creating content.'}
   	    end
   	end
   end
