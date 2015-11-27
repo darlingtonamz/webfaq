@@ -1,8 +1,5 @@
-<h1>Users#show</h1>
-<p>YinkaFind me in app/views/users/show.html.erb</p>
-Welcome <%#= @user.name.capitalize %>
+<h1>Welcome <%= @user.name.capitalize %></h1>
+<h4><%= link_to 'Edit', edit_user_registration_path(@user) %></h4><br>
 
-<%= link_to 'Edit', edit_user_registration_path(@user) %><br>
-
-<%= link_to "Your FAQs", user_faqs_path(@user) %>&nbsp;
+<h3><%= link_to "Your FAQs", user_faqs_path(@user) %></h3>
 <%= link_to 'Sign Out', destroy_user_session_path(), method: :delete %>

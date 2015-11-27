@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    
+    @user = User.find(params[:user_id])
   end
 
   def create
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user.id
+    @user = current_user
     #@faqs = (@user.faqs|=[])
   end
 
