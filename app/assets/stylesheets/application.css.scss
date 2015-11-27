@@ -1,5 +1,6 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+/*@import "bootstrap-sprockets";
+@import "bootstrap";*/
+@import "materialize";
 
 body{
 	background: rgba(0, 0, 0, 0.035);
@@ -14,6 +15,10 @@ table {
 
 container{
 	padding: 10px;
+}
+
+a{
+	color: #26A69A;
 }
 
 .distant{	
@@ -59,10 +64,10 @@ container{
 }
 
 .qbottom{
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
-//<<<<<<< HEAD
+// <<<<<<< HEAD
 #logo {
 	font-size: 26px;
 	font-weight: 700;
@@ -102,7 +107,6 @@ container{
 		}
 	}
 }
-//=======
 
 .right{
 	text-align: right;
@@ -116,3 +120,35 @@ container{
 	color: #337AB7;
 	font-size: 20px;
 }
+
+.btn{
+	width: auto;
+}
+
+.floating_button{
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	padding: 10px;
+}
+.navbar-inner{
+	background: rgb(233, 97, 103) none repeat scroll 0% 0%;
+}
+#logo {
+	margin-left: 10px
+}
+#logo a {
+    color: rgb(246, 246, 246);
+}
+.nav{
+	float: right;
+}
+
+#popup, #new_link{
+	float: right;
+	z-index: 9999;
+	position: fixed;
+	bottom: 100px;
+	right: 40px;
+}
+

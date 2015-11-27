@@ -5,12 +5,11 @@
   <%= stylesheet_link_tag    'application', 'elements',media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'my_js', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  
 </head>
 <body>
 <header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
-      <div class="container">
+      <div>
         <div id="logo" class="navbar-brand"><%= link_to "Webfaq", root_path %></div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
         	<% if user_signed_in? -%>
