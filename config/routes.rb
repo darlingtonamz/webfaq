@@ -1,5 +1,7 @@
     Rails.application.routes.draw do
 
+      get 'faqs/:id' => 'faqs#show_with_token'
+
       devise_for :users
       devise_scope :user do
       	# get "/" => "devise/sessions#new"
@@ -17,9 +19,7 @@
       resources :comments
       resources :ratings
       
-      
-      root to: "users#show"
-
-
     end
+
+    root to: "users#show"
   end
