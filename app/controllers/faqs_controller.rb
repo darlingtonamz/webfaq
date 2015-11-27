@@ -40,7 +40,7 @@ class FaqsController < ApplicationController
   end
 
   def destroy
-  	@faq = Faq.destroy(params[:id])
+  	@faq = Faq.find(params[:id]).destroy
   	respond_to do |format|
   		format.html { redirect_to user_faqs_path(@faq.user_id)}
   		format.js
