@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :website_domain %><br />
+    <%= f.text_field :website_domain, autofocus: true %>
+  </div> 
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
