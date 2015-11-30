@@ -34,6 +34,7 @@ class FaqsController < ApplicationController
       if @faq.user.token == params[:token] #&& request.headers[:REFERER] == @faq.user.website_domain
         respond_to do |format|
           format.json { render json: @faq.questions }
+          format.html { redirect_to root_url alert: "Bad Request."}
         end
       else
         head :unauthorized
