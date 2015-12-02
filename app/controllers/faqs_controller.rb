@@ -32,10 +32,6 @@ class FaqsController < ApplicationController
       #TODO: Verify that request is coming from the website registered by the user
       # whose token was given.
       if @faq.user.token == params[:token] #&& request.headers[:REFERER] == @faq.user.website_domain
-        respond_to do |format|
-          format.json { render json: @faq.questions }
-          format.html { redirect_to root_url alert: "Bad Request."}
-        end
       else
         head :unauthorized
       end
