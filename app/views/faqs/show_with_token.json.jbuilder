@@ -1,4 +1,5 @@
 json.faq @faq.questions.each do |q|
+	json.id q.id
 	json.content q.content
 	json.answer q.answer
 	json.comment q.comments, :content, :created_at
