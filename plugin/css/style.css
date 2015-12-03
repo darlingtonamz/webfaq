@@ -1,0 +1,99 @@
+body {
+    background: rgba(0, 0, 0, 0.035) none repeat scroll 0% 0%;
+}
+
+.distant{	
+	margin: 10px;
+}
+
+.qmain{
+	padding: 10px;
+    box-shadow: 1px 2px 3px 0px #B0B0B0;
+    background: white none repeat scroll 0% 0%;
+}
+
+.qtop, .qhead {
+	border-bottom: 1px solid #e5e5e5;
+	overflow: auto;
+}
+.qhead{
+	font-size: 30px;
+	color: #26A69A;
+}
+
+.qhead, .qanswer{
+	font-family: "Roboto",sans-serif;
+	line-height: 1.5;
+	font-weight: normal;
+}
+
+.qanswer{
+	margin-top: 10px;
+}
+
+.qleft{
+	width: 80%;
+	float: left;
+}
+
+.qright{
+	width: 20%;
+	float: right;
+	text-align: center;
+}
+
+#vicon{
+	float: left;
+	width: 50%;
+}
+
+#vcount{
+	text-align: right;
+}
+
+.voteimg{
+	opacity: 0.5;
+}
+
+.voteimg:hover{
+	background: #eee;
+}
+
+.qbottom{
+	//padding-right: 30px;
+}
+
+.floating_button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 10px;
+    text-decoration: none;
+	color: #FFF;
+	background-color: #26A69A;
+	text-align: center;
+	letter-spacing: 0.5px;
+	transition: all 0.2s ease-out 0s;
+	cursor: pointer;
+	border: medium none;
+	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+.btt{
+	position: absolute;
+	right: 25px;
+}
+
+textarea{
+	width: 100%;
+    border: medium none;
+    box-shadow: 1px 1px 1px rgb(238, 238, 238);
+    height: 100px;
+    font-size: 20px;
+    color: rgb(110, 96, 96);
+    overflow: hidden;
+}
+
+textarea:active, textarea:hover{
+	border-bottom: 1px solid #26A69A;
+}
