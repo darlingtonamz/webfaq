@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class FaqTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	def setup
+		@faq = Faq.new(title:"Google is the way to go", user_id: 1)
+	end
+  
+  test "create faqs" do
+  	assert @faq.save
+  end
 end
