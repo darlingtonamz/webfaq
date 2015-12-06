@@ -97,3 +97,28 @@ textarea{
 textarea:active, textarea:hover{
 	border-bottom: 1px solid #26A69A;
 }
+
+.xcomment{
+	width: 100%;
+    margin-top: 10px;
+    overflow: auto;
+}
+
+.xcomment_in{
+	float: left;
+	margin: 10px;
+}
+
+.cholder{
+	background: #f8f8f8;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	border-radius: 2px;
+}
+
+.cholder img{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}

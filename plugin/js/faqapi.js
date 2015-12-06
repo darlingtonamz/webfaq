@@ -41,19 +41,19 @@ var $content = {};
           var comment_icon = $('<div>', {id: 'vicon'});
           var comment_count = $('<div>', {id: 'vcount'});
           var write_comment = $('<div>', {id: 'write_comment_'+id});
-          var more_comment = $('<div>', {id: 'more_comment_'+id});
           comment_icon.append('<a value="'+id+'"><img src="img/comment1x.png"></a>');
           comment_count.append('<a value="'+id+'">'+data.faq[i].comment_count+' Comment</a>');
           qbottom.append(comment_icon);
           qbottom.append(comment_count);
           qbottom.append(write_comment);
-          qbottom.append(more_comment);
 
+      var more_comment = $('<div>', {id: 'more_comment_'+id});
      qtop.append(qleft);
      qtop.append(qright);
      
      question.append(qtop);
      question.append(qbottom);
+    question.append(more_comment);
      webfaqElement.append(question);
    }
  });
@@ -83,11 +83,20 @@ $(document).on('click', '#vcount a', function() {
 
     if ($('#more_comment_'+cId).is(':empty')){
       //console.log(comment.length);
-      $('#more_comment_'+cId).append('<div id="comment_holder_'+cId+'">No comments...</div>');
+      $('#more_comment_'+cId).append('<div id="comment_holder_'+cId+'" class="cholder">No comments...</div>');
       if (comment.length > 0) {
           $('#comment_holder_'+cId).empty();
           for (var i = 0; i < comment.length; i++) {
-            $('#comment_holder_'+cId).append(comment[i].content+"<br>");
+            $('#comment_holder_'+cId).append(
+              '<div class="row xcomment">'+
+                '<div class="col-sm-1 col-xs-2 xcomment_in">'+
+                  '<img src="img/avatar.png"/>'+
+                '</div>'+
+                '<div class="col-sm-11 col-xs-10 xcomment_in">'+
+                  '<div class="comment_name">'+comment[i].content+'</div>'+
+                  '<div>'+comment[i].content+'</div>'+
+                '</div>'+
+              '</div>');
           };
       };
     } else {
