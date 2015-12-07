@@ -3,13 +3,13 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   test "should not save without email" do
-  	user = User.new(name: 'Amanze', email: '')
-  	assert_not user.save, "Saved without email"
+  	@user = users(:user2)
+  	assert @user.valid?
   end
   
   test "should not save without name" do
-  	user = User.new
-  	assert_not user.save, "Saved without name"
+  	@user2 = users(:user2)
+  	assert_not @user2.save, "Saved without name"
   end
 
 end
