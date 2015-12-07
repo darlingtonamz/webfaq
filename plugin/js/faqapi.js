@@ -80,15 +80,14 @@ $(document).on('click', '#vcount a', function() {
     console.log($content[cId][0]);
 
     var comment = $content[cId];
-
+    //toggleSize('#more_comment_'+cId);
     if ($('#more_comment_'+cId).is(':empty')){
       //console.log(comment.length);
       $('#more_comment_'+cId).append('<div id="comment_holder_'+cId+'" class="cholder">No comments...</div>');
       if (comment.length > 0) {
           $('#comment_holder_'+cId).empty();
           for (var i = 0; i < comment.length; i++) {
-            $('#comment_holder_'+cId).append(
-              '<div class="row xcomment">'+
+            var new_comment = '<div class="row xcomment">'+
                 '<div class="col-sm-1 col-xs-2 xcomment_in">'+
                   '<img src="img/avatar.png"/>'+
                 '</div>'+
@@ -96,10 +95,18 @@ $(document).on('click', '#vcount a', function() {
                   '<div class="comment_name">'+comment[i].content+'</div>'+
                   '<div>'+comment[i].content+'</div>'+
                 '</div>'+
-              '</div>');
+              '</div>';
+
+            $(new_comment).appendTo('#comment_holder_'+cId);
           };
       };
-    } else {
-      $('#more_comment_'+cId).empty();
+    } else {      
+        $('#more_comment_'+cId).empty();
     };
 });
+
+function toggleSize (id) {
+    $( id ).animate({
+        height: "toggle"
+      }, 200, function() {});
+  }
