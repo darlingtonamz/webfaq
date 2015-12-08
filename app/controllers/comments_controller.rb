@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_filter :verify_authenticity_token   
   def index
   	@comments = Comment.where(question_id:params[:question_id])
   	@question = Question.find(params[:question_id])
@@ -16,9 +17,11 @@ class CommentsController < ApplicationController
     
   	respond_to do |format|
   		if @comment.save
+        format.json{render status: 201, json: '{"successful":"success"}'}
   			format.html { }
   			format.js
-  	    end
+        
+      end
   	end
   end
 

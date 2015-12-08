@@ -71,6 +71,26 @@ $(document).on('click', '#vicon a', function() {
     $(this).hide();
     $('#write_comment_'+cId).append('<textarea type="text"></textarea>'+
     '<button class="floating_button btt"><img src="img/send1x.png"/></button>');
+
+    var commentBoxId = '#write_comment_' + cId;
+    var commentButtonInCommentBox = commentBoxId + ' .floating_button'
+    $(commentButtonInCommentBox).on('click', function(e) {
+      var comment = $(e.target).prev().val();
+      console.log(comment);
+
+      //TODO: Send HTTP POST to your API via AJAX.
+      
+        $.post("http://localhost:3000/comments",
+        {
+          comment:{
+            content: comment
+          }
+          ,question_id: cId, user_id: 1
+        },
+        function(data, status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+    });
 });
 
 $(document).on('click', '#vcount a', function() { 
@@ -105,8 +125,29 @@ $(document).on('click', '#vcount a', function() {
     };
 });
 
-function toggleSize (id) {
-    $( id ).animate({
-        height: "toggle"
-      }, 200, function() {});
-  }
+
+
+
+
+/*POST /questions/1/comments
+Cookie: COOKIE_VALUE
+
+def create
+  user = User.find_by(id: cookies[:user_id])
+  if user
+    Logged in so allow them to make the comment.
+  Comment.create
+  201 Created
+  Comment
+  else
+    head :unauthorized
+    User is not logged in
+  end
+end
+*/
+
+
+
+
+
+
