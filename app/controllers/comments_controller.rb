@@ -14,7 +14,11 @@ class CommentsController < ApplicationController
   	@comment = Comment.new(comment_param)
   	@comment.user_id = params[:user_id]
   	@comment.question_id = params[:question_id]
-    
+
+    puts '@'*100
+    puts cookies.inspect
+    puts session[:user_id]
+
   	respond_to do |format|
   		if @comment.save
         format.json{render status: 201, json: '{"successful":"success"}'}

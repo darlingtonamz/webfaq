@@ -8,7 +8,10 @@ var $content = {};
  }
 
  var webfaqElement = $('#webfaq-element');
- $.get('http://localhost:3000/faqs/1?token=c57f3546-2bcf-47d7-b796-753b19a652b0', function (data) {
+ $.ajax({
+  xhrFields: { withCredentials: true},
+  type: 'GET',
+  url: 'http://localhost:3000/faqs/1?token=c57f3546-2bcf-47d7-b796-753b19a652b0'}).done(function (data) {
     json = data.faq;
    for (var i = 0; i < data.faq.length; i++) {
       var id = data.faq[i].id;

@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :dump_session
+  private
+
+  	def dump_session
+  		puts '&'*100
+  		puts cookies[:remember_user_token]
+  		puts current_user.inspect
+  		true
+  	end
 
   protected
 
