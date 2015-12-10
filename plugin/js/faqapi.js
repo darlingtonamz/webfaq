@@ -7,11 +7,74 @@ var $content = {};
    document.head.appendChild(script);
  }
 
- var webfaqElement = $('#webfaq-element');
+var webfaqElement = $('#webfaq-element');
+
+var signUp = $('<div>', { class: 'qmain distant signin', id: 'loginUp' });
+var field1 = $('<div>', { class: 'field' });  
+  field1.append('<label>Name</label><br />');
+  field1.append('<input type="text"></input>');
+
+var field2 = $('<div>', { class: 'field' }); 
+  field2.append('<label>Email</label><br />');
+  field2.append('<input type="text"></input>');
+
+var field3 = $('<div>', { class: 'field cUp' });
+  field3.append('<label>Website</label><br />');
+  field3.append('<input type="text"></input>');
+
+var field4 = $('<div>', { class: 'field' });
+  field4.append('<label>Password</label>');
+  field4.append('<em>(8 characters minimum)</em><br />');
+  field4.append('<input autocomplete="off" id="user_password" type="password"></input>');
+
+var field5 = $('<div>', { class: 'field cUp' });
+  field5.append('<label>Password confirmation</label><br />');
+  field5.append('<input autocomplete="off" id="user_password_confirmation" type="password"></input>');
+
+var field6 = $('<div>', { class: 'waves-effect waves-light btn' });
+  field6.append('<input id="btToggle" value="Sign up" type="submit"></input>');
+
+signUp.append(field1);
+signUp.append(field2);
+signUp.append(field3);
+signUp.append(field4);
+signUp.append(field5);
+signUp.append(field6);
+
+//webfaqElement.append(signUp);
+
+
+var signIn = $('<div>', { class: 'qmain distant signin', id: 'loginUp' });
+var field_1 = $('<div>', { class: 'field' });  
+  field_1.append('<label>Name</label><br />');
+  field_1.append('<input type="text"></input>');
+
+var field_2 = $('<div>', { class: 'field' }); 
+  field_2.append('<label>Password</label>');
+  field_2.append('<em>(8 characters minimum)</em><br />');
+  field_2.append('<input autocomplete="off" id="user_password" type="password"></input>');
+
+var field_3 = $('<div>', { class: 'waves-effect waves-light btn' });
+  field_3.append('<input id="btToggle" value="Sign up" type="submit"></input>');
+
+signIn.append(field_1);
+signIn.append(field_2);
+signIn.append(field_3);
+
+$("#btToggle").click(function(){
+    $("loginUp").removeClass("signin");
+    $("loginUp").addClass("signUp");
+}); 
+
  $.ajax({
   xhrFields: { withCredentials: true},
   type: 'GET',
+<<<<<<< HEAD
+  //url: 'http://localhost:3000/faqs/1?token=c57f3546-2bcf-47d7-b796-753b19a652b0'}).done(function (data) {
+  url: 'http://10.0.3.174:3000/faqs/1?token=cc138fe4-3e62-4832-8292-0bf2e2911367'}).done(function (data) { 
+=======
   url: 'http://localhost:3000/faqs/1?token=cc138fe4-3e62-4832-8292-0bf2e2911367'}).done(function (data) {
+>>>>>>> 21084bc29469c0a230627d4020b603e64e340f3b
     json = data.faq;
    for (var i = 0; i < data.faq.length; i++) {
       var id = data.faq[i].id;
@@ -56,7 +119,7 @@ var $content = {};
      
      question.append(qtop);
      question.append(qbottom);
-    question.append(more_comment);
+     question.append(more_comment);
      webfaqElement.append(question);
    }
  });
