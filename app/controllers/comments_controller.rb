@@ -6,33 +6,34 @@ class CommentsController < ApplicationController
   end
 
   def new
-  	@comment = Comment.new
-  	@question = Question.find(params[:question_id])
+  	@question = Question.find_by(id: params[:question_id])
+    @comment = @question.comments.build
   end
 
   def create
-  	@comment = Comment.new(comment_param)
-  	@comment.user_id = params[:user_id]
-  	@comment.question_id = params[:question_id]
-
-    puts '@'*100
-    puts cookies.inspect
-    puts session[:user_id]
-
-  	respond_to do |format|
-  		if @comment.save
-        format.json{render status: 201, json: '{"successful":"success"}'}
-  			format.html { }
-  			format.js
-        
+    if current_user
+      @comment = Comment.new(comment_param)
+      @comment.user = current_user
+      if @comment.save
+        respond_to do |format|
+          format.json { render status: :created, json: @comment }
+          format.html { }
+          format.js
+        end
+      else
+        head :bad_request
       end
-  	end
+    else
+      head :unauthorized
+    end
   end
 
   private
     def comment_param
-      params.require(:comment).permit(:content, 
-      								  :user_id, 
-      								  :question_id)
+      params.require(:comment).permit(
+        :content, 
+			  :user_id, 
+			  :question_id
+      )
     end
 end
