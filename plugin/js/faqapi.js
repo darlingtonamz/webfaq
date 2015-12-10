@@ -11,7 +11,7 @@ var $content = {};
  $.ajax({
   xhrFields: { withCredentials: true},
   type: 'GET',
-  url: 'http://localhost:3000/faqs/1?token=c57f3546-2bcf-47d7-b796-753b19a652b0'}).done(function (data) {
+  url: 'http://localhost:3000/faqs/1?token=cc138fe4-3e62-4832-8292-0bf2e2911367'}).done(function (data) {
     json = data.faq;
    for (var i = 0; i < data.faq.length; i++) {
       var id = data.faq[i].id;
@@ -82,17 +82,16 @@ $(document).on('click', '#vicon a', function() {
       console.log(comment);
 
       //TODO: Send HTTP POST to your API via AJAX.
-      
-        $.post("http://localhost:3000/comments",
-        {
-          comment:{
-            content: comment
-          }
-          ,question_id: cId, user_id: 1
-        },
-        function(data, status){
+        $.ajax({
+          url: "http://localhost:3000/comments",
+          xhrFields: { withCredentials: true },
+          type: 'POST',
+          data: {comment: { content: comment, question_id: cId }}
+        }).done(
+          function(data, status){
             alert("Data: " + data + "\nStatus: " + status);
-        });
+          }
+        );
     });
 });
 
@@ -130,24 +129,6 @@ $(document).on('click', '#vcount a', function() {
 
 
 
-
-
-/*POST /questions/1/comments
-Cookie: COOKIE_VALUE
-
-def create
-  user = User.find_by(id: cookies[:user_id])
-  if user
-    Logged in so allow them to make the comment.
-  Comment.create
-  201 Created
-  Comment
-  else
-    head :unauthorized
-    User is not logged in
-  end
-end
-*/
 
 
 
