@@ -11,7 +11,7 @@
 			<tr>
 				<td><p><%= @question.content %></p></td>
 				<td><p><%= @question.answer %></p></td>
-				<td><p><%= link_to 'Edit', edit_user_faq_question_path, class: 'btn btn-link' %><%= link_to 'Delete',user_faq_question_path(), method: :delete, class: 'btn btn-link' %></p></td>
+				<td><p><%= link_to 'Edit', edit_user_faq_question_path, class: 'btn btn-link' %>&nbsp;<%= link_to 'Delete',user_faq_question_path(), method: :delete, class: 'btn btn-link' %></p></td>
 			</tr>
 		</table>
 	</div>

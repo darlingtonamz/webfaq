@@ -13,17 +13,31 @@ class FaqsController < ApplicationController
   	@faq.user_id = params[:user_id]
     
   	respond_to do |format|
-  		if @faq.save
+      if @faq.save
   			format.html { redirect_to user_faqs_path(@faq.user_id)}
   			format.js
-  	    else
-  	      render 'show'
-  	    end
+      else
+  	    render 'show'
+      end
   	end
   end
 
   def show
   	@faq = Faq.find(params[:id])
+  end
+
+  def show_with_token
+    @faq = Faq.find_by(id: params[:id])
+    if @faq
+      #TODO: Verify that request is coming from the website registered by the user
+      # whose token was given.
+      if @faq.user.token == params[:token] #&& request.headers[:REFERER] == @faq.user.website_domain
+      else
+        head :unauthorized
+      end
+    else
+      head :not_found
+    end
   end
 
   def edit
@@ -51,5 +65,4 @@ class FaqsController < ApplicationController
     def faq_param
       params.require(:faq).permit(:title)
     end
-
 end

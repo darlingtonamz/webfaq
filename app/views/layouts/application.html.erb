@@ -10,8 +10,8 @@
 <header class="navbar navbar-default" role="navigation">
     <div class="navbar-inner">
       <div>
-        <div id="logo" class="navbar-brand"><%= link_to "Webfaq", root_path %></div>
-        <nav class="collapse navbar-collapse navbar-ex1-collapse">
+       <!--  <div id="logo" class="navbar-brand"><%= link_to "Webfaq", root_path %></div> -->
+        <nav class="navbar-brand collapse navbar-collapse navbar-ex1-collapse"><%= link_to "Webfaq", root_path, id: "logo" %>
         	<% if user_signed_in? -%>
 						<ul class="nav navbar-nav navbar-right">
 							<li><%= link_to 'Edit account', edit_user_registration_path %></li>
