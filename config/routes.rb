@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     
   resources :users do
     resources :faqs do
+      member do
+        get '/download' => 'faqs#send_plugin'
+      end
       resources :questions do
         member do
           put "like", to: "questions#upvote"
