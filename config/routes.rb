@@ -18,8 +18,8 @@ Rails.application.routes.draw do
   
   resources :questions, only: [:upvote, :downvote] do
     member do
-      put "like", to: "questions#upvote"
-      put "dislike", to: "questions#downvote"
+      post "like", to: "questions#upvote"
+      post "dislike", to: "questions#downvote"
     end  
   end
   

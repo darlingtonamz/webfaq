@@ -49,20 +49,25 @@ signUp.append(field6);
 var signIn = $('<div>', { class: 'qmain distant', id: 'signIn' });
 var field_1 = $('<div>', { class: 'field' });  
   field_1.append('<label>Name</label><br />');
-  field_1.append('<input type="text"></input>');
+  field_1.append('<input id="sign_in_name" type="text"></input>');
 
-var field_2 = $('<div>', { class: 'field' }); 
-  field_2.append('<label>Password</label>');
-  field_2.append('<em>(8 characters minimum)</em><br />');
-  field_2.append('<input autocomplete="off" id="user_password" type="password"></input>');
+var field_2 = $('<div>', { class: 'field' });  
+  field_2.append('<label>Email</label><br />');
+  field_2.append('<input id="sign_in_email" type="text"></input>');
 
-var field_3 = $('<div>', { class: 'waves-effect waves-light btn' });
-  field_3.append('<input id="signInBut" value="Sign in" type="submit"></input><br>');
-  field_3.append('<a id="btToggle" type="submit">Sign up</a>');
+var field_3 = $('<div>', { class: 'field' }); 
+  field_3.append('<label>Password</label>');
+  field_3.append('<em>(8 characters minimum)</em><br />');
+  field_3.append('<input autocomplete="off" id="sign_in_password" type="password"></input>');
+
+var field_4 = $('<div>', { class: 'waves-effect waves-light btn' });
+  field_4.append('<input id="signInBut" value="Sign in" type="submit"></input><br>');
+  field_4.append('<a id="btToggle" type="submit">Sign up</a>');
 
 signIn.append(field_1);
 signIn.append(field_2);
 signIn.append(field_3);
+signIn.append(field_4);
 var login_holder = $('<div>', {id: 'login_holder' });
 login_holder.append(signIn);
 login_holder.append(signUp);
@@ -78,11 +83,16 @@ $(document).on('click','#btToggle', function(){
 });
 
 $(document).on('click', '#signInBut', function(){
+  //POST   /users/sign_in(.:format)   devise/sessions#create
+  var name = $('#sign_in_name').val();
+  var email = $('#sign_in_email').val();
+  var password = $('#sign_in_password').val();
+  alert(name +' : '+ email +' : '+ password);
   $.ajax({
-    url: "http://localhost:3000/",
+    url: "http://localhost:3000/users/sign_in",
           xhrFields: { withCredentials: true },
-          type: 'GET',
-          data: {comment: { email: '', password: '' }}
+          type: 'POST',
+          data: {user: { name: name, email: email, password: password }}
   }).done(
     function(data, status){
       alert("Data: " + data + "\nStatus: " + status);
@@ -244,12 +254,12 @@ function newComment(c, cId){
 
 $(document).on('click', '.voteup .voteimg', function() { 
   var rId = $(this).attr('value');
-  alert('up: '+rId);
+  //alert('up: '+rId);
   $.ajax({
-    url: "http://localhost:3000/users/1/faqs/"+faq_id+"/quesitons/"+rId+"/like",
+    url: "http://localhost:3000/quesitons/"+rId+"/like",
           xhrFields: { withCredentials: true },
-          type: 'PUT',
-          data: {}
+          type: 'post',
+          data: {question:{id: rId}}
   }).done(
     function(data, status){ }
   );
