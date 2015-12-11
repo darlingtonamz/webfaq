@@ -61,6 +61,10 @@ class FaqsController < ApplicationController
 	  end
   end
 
+  def send_plugin
+    send_file Rails.root.join('plugin', 'plugin.zip'), :type=>"application/zip", :x_sendfile=>true
+  end
+
   private
     def faq_param
       params.require(:faq).permit(:title)
