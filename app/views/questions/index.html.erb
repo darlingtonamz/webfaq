@@ -29,7 +29,7 @@
 						<%= link_to image_tag('comment1x.png'), comment_path(:new, user_id: q.faq.user_id, question_id: q.id), id: "comment_but_#{q.id}", remote: true %>
 					</div>
 					<div id="comment_count_<%= q.id %>" class="col-sm-2 col-xs-4 right">
-						<%= link_to "#{q.comments.size} comments", comments_path(user_id: q.faq.user_id, question_id: q.id), remote: true %>
+						<%= link_to "#{q.comments.size} Comment#{q.comments.size > 1 ? 's':''}", comments_path(user_id: q.faq.user_id, question_id: q.id), remote: true %>
 					</div>
 				</div>
 				<div id="more_comment_<%= q.id %>" class="container"></div>
