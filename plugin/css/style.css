@@ -130,3 +130,13 @@ textarea:active, textarea:hover{
 	height: 40px;
 	border-radius: 50%;
 }
+
+.field input{
+    background-color: transparent;
+    border-width: medium medium 1px;
+    border-style: none none solid;
+    border-color: -moz-use-text-color -moz-use-text-color #9E9E9E;   
+    height: 3rem;
+    width: 100%;   
+    margin: 0px 0px 15px;
+}
