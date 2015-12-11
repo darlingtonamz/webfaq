@@ -49,15 +49,25 @@ class QuestionsController < ApplicationController
   end
 
   def upvote
-    @question = Question.find(params[:id])
-    @question.upvote_by current_user
-    redirect_to :back
+    if current_user
+      @question = Question.find(params[:id])
+      @question.upvote_by current_user
+      redirect_to :back
+    else
+      head :unauthorized
+    end
   end
+
   def downvote
-    @question = Question.find(params[:id])
-    @question.downvote_by current_user
-    redirect_to :back
+    if current_user
+      @question = Question.find(params[:id])
+      @question.downvote_by current_user
+      redirect_to :back
+    else
+      head :unauthorized
+    end
  end
+
   private
     def question_param
       params.require(:question).permit(:content, :answer)
